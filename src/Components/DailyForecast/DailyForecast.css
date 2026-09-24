@@ -1,0 +1,275 @@
+.daily-forecast-card {
+  background: rgba(30, 41, 59, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+[data-theme='light'] .daily-forecast-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.daily-header {
+  margin-bottom: 20px;
+}
+
+.daily-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.daily-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+}
+
+.daily-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+[data-theme='light'] .daily-heading {
+  color: #0f172a;
+}
+
+.daily-subtitle {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 2px 0 0;
+}
+
+[data-theme='light'] .daily-subtitle {
+  color: #64748b;
+}
+
+.daily-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.daily-row-item {
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+[data-theme='light'] .daily-row-item {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.daily-row-item:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.daily-row-item.expanded {
+  border-color: #38bdf8;
+  background: rgba(15, 23, 42, 0.7);
+}
+
+[data-theme='light'] .daily-row-item.expanded {
+  background: #ffffff;
+}
+
+.daily-row-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+}
+
+.day-name-col {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+[data-theme='light'] .day-name {
+  color: #0f172a;
+}
+
+.day-name.today {
+  color: #38bdf8;
+}
+
+.day-date {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.day-condition-col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 140px;
+}
+
+.day-weather-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.day-cond-text {
+  font-size: 13px;
+  color: #cbd5e1;
+  white-space: nowrap;
+}
+
+[data-theme='light'] .day-cond-text {
+  color: #334155;
+}
+
+.day-rain-col {
+  width: 70px;
+  font-size: 12px;
+}
+
+.day-rain-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.day-rain-dry {
+  color: #64748b;
+}
+
+/* Temperature Bar */
+.day-temp-bar-col {
+  flex: 1;
+  max-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.temp-num {
+  font-size: 13px;
+  font-weight: 600;
+  width: 28px;
+}
+
+.temp-num.min {
+  color: #94a3b8;
+  text-align: right;
+}
+
+.temp-num.max {
+  color: #ffffff;
+  text-align: left;
+}
+
+[data-theme='light'] .temp-num.max {
+  color: #0f172a;
+}
+
+.temp-range-track {
+  position: relative;
+  flex: 1;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+[data-theme='light'] .temp-range-track {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.temp-range-fill {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+  border-radius: 4px;
+}
+
+.day-expand-col {
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+}
+
+/* Expanded panel */
+.daily-expanded-panel {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(15, 23, 42, 0.3);
+}
+
+[data-theme='light'] .daily-expanded-panel {
+  background: #f1f5f9;
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+.expanded-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.expanded-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.exp-label {
+  color: #94a3b8;
+}
+
+.exp-val {
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+[data-theme='light'] .exp-val {
+  color: #0f172a;
+}
+
+@media (max-width: 640px) {
+  .day-condition-col {
+    width: auto;
+  }
+  .day-cond-text {
+    display: none;
+  }
+  .day-temp-bar-col {
+    max-width: 140px;
+  }
+  .temp-range-track {
+    display: none;
+  }
+}

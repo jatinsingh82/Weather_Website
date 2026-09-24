@@ -1,0 +1,241 @@
+.weather-intelligence-card {
+  background: rgba(30, 41, 59, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+[data-theme='light'] .weather-intelligence-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.intelligence-header {
+  margin-bottom: 20px;
+}
+
+.intel-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.intel-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+}
+
+.intel-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+[data-theme='light'] .intel-heading {
+  color: #0f172a;
+}
+
+.intel-subtitle {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 2px 0 0;
+}
+
+[data-theme='light'] .intel-subtitle {
+  color: #64748b;
+}
+
+.intel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.intel-box {
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+[data-theme='light'] .intel-box {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.box-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.box-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+[data-theme='light'] .box-title {
+  color: #0f172a;
+}
+
+.story-paragraph {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+[data-theme='light'] .story-paragraph {
+  color: #334155;
+}
+
+/* Changes list */
+.changes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.change-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme='light'] .change-item {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.change-icon {
+  margin-top: 2px;
+}
+
+.change-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.change-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+[data-theme='light'] .change-title {
+  color: #0f172a;
+}
+
+.change-msg {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+[data-theme='light'] .change-msg {
+  color: #64748b;
+}
+
+.steady-msg {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Rain window */
+.rain-window-box {
+  grid-column: 1 / -1;
+}
+
+.rain-window-status {
+  font-size: 12px;
+}
+
+.rain-peak-alert {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.rain-clear-status {
+  color: #10b981;
+}
+
+.rain-bars-track {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 100px;
+  padding-top: 10px;
+  overflow-x: auto;
+}
+
+.rain-bar-col {
+  flex: 1;
+  min-width: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+}
+
+.rain-bar-container {
+  flex: 1;
+  width: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+[data-theme='light'] .rain-bar-container {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.rain-bar-fill {
+  width: 100%;
+  background: #38bdf8;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: height 0.5s ease;
+}
+
+.rain-bar-fill.peak {
+  opacity: 1;
+  background: linear-gradient(to top, #38bdf8, #0284c7);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+.bar-pop-text {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.bar-time-text {
+  font-size: 10px;
+  color: #64748b;
+  white-space: nowrap;
+}

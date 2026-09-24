@@ -1,0 +1,149 @@
+.comfort-score-card {
+  background: rgba(30, 41, 59, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+[data-theme='light'] .comfort-score-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.comfort-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.comfort-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comfort-shield-icon {
+  color: #10b981;
+}
+
+.comfort-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+[data-theme='light'] .comfort-title {
+  color: #0f172a;
+}
+
+.comfort-disclaimer-pill {
+  font-size: 10px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+[data-theme='light'] .comfort-disclaimer-pill {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.comfort-body {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.score-dial-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+
+.score-svg {
+  transform: rotate(-90deg);
+}
+
+.score-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='light'] .score-track {
+  stroke: rgba(0, 0, 0, 0.08);
+}
+
+.score-fill {
+  fill: none;
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.score-dial-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.score-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+[data-theme='light'] .score-number {
+  color: #0f172a;
+}
+
+.score-total {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.comfort-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.comfort-status-badge {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.comfort-desc {
+  font-size: 13px;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.4;
+}
+
+[data-theme='light'] .comfort-desc {
+  color: #475569;
+}
+
+.comfort-factors {
+  font-size: 11px;
+  color: #64748b;
+}

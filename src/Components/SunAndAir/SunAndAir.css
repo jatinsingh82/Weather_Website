@@ -1,0 +1,238 @@
+.sun-and-air-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.card-item {
+  background: rgba(30, 41, 59, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+[data-theme='light'] .card-item {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+[data-theme='light'] .card-title {
+  color: #0f172a;
+}
+
+.card-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+
+[data-theme='light'] .card-badge {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* Arc */
+.arc-visual-container {
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-arc-svg {
+  width: 100%;
+  max-width: 260px;
+  height: 95px;
+  overflow: visible;
+}
+
+.arc-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='light'] .arc-footer-row {
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+.arc-point {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arc-point.right {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+.point-label {
+  display: block;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.point-time {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+[data-theme='light'] .point-time {
+  color: #0f172a;
+}
+
+.arc-center-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #38bdf8;
+  font-weight: 500;
+}
+
+/* Air Quality */
+.aqi-level-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid;
+  text-transform: uppercase;
+}
+
+.air-quality-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aqi-score-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.aqi-score-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 8px 16px;
+  min-width: 70px;
+}
+
+[data-theme='light'] .aqi-score-wrap {
+  background: #f1f5f9;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.aqi-big-val {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.aqi-scale {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.aqi-explanation {
+  font-size: 13px;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.4;
+}
+
+[data-theme='light'] .aqi-explanation {
+  color: #334155;
+}
+
+.pollutants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.pollutant-box {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+[data-theme='light'] .pollutant-box {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.p-label {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.p-val {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+[data-theme='light'] .p-val {
+  color: #0f172a;
+}
+
+.air-unavailable-notice {
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  font-size: 13px;
+}
