@@ -1,537 +1,91 @@
-# Weather Intelligence Platform 🌦️
+# Jatin Singh — Personal Technology & Cyber Strategy Portfolio
 
-> A modern, responsive weather intelligence platform that transforms real-time weather data into useful forecasts, environmental insights, location comparisons, and actionable recommendations.
-
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react\&logoColor=white)](https://react.dev/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript\&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://vercel.com/)
-
-**[🌐 Live Demo](https://weather-website-ten-phi.vercel.app/)** · **[📂 GitHub Repository](https://github.com/jatinsingh82/Weather_Website)**
+> **Computer Science Engineer + MBA (IT) / Business Analytics + Cybersecurity Analyst**  
+> Operating at the intersection of cybersecurity architecture, business resilience, data analytics, and modern software engineering.
 
 ---
 
-## Overview
+## 🎯 Executive Overview
 
-Weather Intelligence Platform is a React-based weather application designed to go beyond simply displaying temperature and weather conditions.
+This repository hosts the personal portfolio of **Jatin Singh**, built with React 18 and Tailwind CSS, featuring the interactive flagship cybersecurity project **CyberSim**.
 
-It combines current weather, forecasts, air quality, weather alerts, radar visualization, saved locations, location comparison, comfort analysis, activity recommendations, and personalized weather insights into one responsive experience.
-
-The goal is simple:
-
-> **Turn weather data into information people can actually use.**
-
-Instead of only answering:
-
-**"What's the temperature?"**
-
-the application aims to answer:
-
-**"What is happening, what is coming, and what should I do?"**
+### Professional Positioning
+* **Role:** Cybersecurity Analyst — Cyber Strategy & Transformation (Deloitte)
+* **Education:** B.Tech Computer Science Engineering + MBA in Information Technology (Business Analytics)
+* **Focus:** Incident response decision modeling, identity boundaries, network segmentation, quantitative risk valuation, and modern web systems.
 
 ---
 
-## 📸 Interface Preview
+## 🚀 Flagship Project: CyberSim
 
-<!-- Place high-resolution screenshots in public/screenshots/ to display below -->
-<div align="center">
-  <img src="public/screenshots/dashboard-overview.png" alt="Weather Intelligence Platform Dashboard" width="850" />
-</div>
+**CyberSim** is an interactive cybersecurity incident decision lab designed to simulate realistic enterprise incident response trade-offs. Rather than presenting multiple-choice quiz questions, it places the practitioner in the Incident Commander seat during active cyber crises.
 
-<details>
-<summary><b>🔍 View Additional Platform Screens</b></summary>
-<br />
-
-| Hourly & 7-Day Forecasting | Activity Advisor & Comfort Score |
-| :---: | :---: |
-| *(Add `public/screenshots/forecast-hourly-daily.png`)* | *(Add `public/screenshots/activity-comfort.png`)* |
-
-| RainViewer Precipitation Radar | Multi-City Location Comparison |
-| :---: | :---: |
-| *(Add `public/screenshots/radar-doppler.png`)* | *(Add `public/screenshots/location-comparison.png`)* |
-
-</details>
+### Core Capabilities:
+1. **Deterministic Simulation Engine:** Models attack progression, indicators of compromise (IOCs), telemetry logs, and state transitions without synthetic LLM hallucinations.
+2. **Multi-Vector Enterprise Scenarios:**
+   * *Operation Red Vault:* Enterprise Ransomware outbreak (LockBit 3.0 strain) with double extortion.
+   * *Cloud Infrastructure Exposure:* AWS IAM credential leak and multi-tenant S3 exfiltration.
+   * *Operation Velvet Trap:* Adversary-in-the-Middle (AiTM) Evilginx phishing session theft and fraudulent SWIFT wire staging.
+3. **Real-World Operational Trade-Offs:** Balances defensive containment (e.g. total network severance vs. surgical micro-segmentation) against revenue loss, SLA penalties, and legal notification clocks (SEC 4-day, GDPR 72-hour).
+4. **Live Telemetry & Posture HUD:** Real-time metrics for Security Posture, Business Continuity, Capital Impact ($), Downtime Hours, and Exfiltrated Records.
+5. **NIST SP 800-61 Aligned Post-Mortem Report:** 5-dimension executive scorecard evaluating Security Posture, Business Continuity, Financial Prudence, Data Protection, and Tactical Decisiveness.
 
 ---
 
-## ✨ Features
+## 🛠️ Portfolio Architecture & Tech Stack
 
-### 🌡️ Real-Time Weather
-
-* Current temperature
-* Feels-like temperature
-* Weather condition
-* Humidity
-* Wind speed and direction
-* Atmospheric pressure
-* Cloud coverage
-* Precipitation
-* High and low temperatures
-* Dynamic weather visuals
-
-### 📍 Location Intelligence
-
-* Location search
-* Search suggestions
-* Browser geolocation
-* Current-location detection
-* Reverse geocoding
-* Saved locations
-* Quick location switching
-
-### ⏱️ Hourly Forecast
-
-View upcoming weather conditions throughout the day, including:
-
-* Temperature
-* Feels-like temperature
-* Precipitation probability
-* Precipitation
-* Wind
-* Humidity
-* Visibility
-* UV index
-* Weather conditions
-
-### 📅 Daily Forecast
-
-Multi-day weather forecasting with:
-
-* Daily high and low temperatures
-* Weather conditions
-* Precipitation
-* Precipitation probability
-* Wind
-* UV information
-* Sunrise and sunset
-
-### 🧠 Weather Intelligence
-
-Transform raw weather data into useful contextual information through:
-
-* Weather summaries
-* Condition analysis
-* Temperature trends
-* Forecast insights
-* Contextual recommendations
-
-### 🏃 Activity Advisor
-
-Weather-aware recommendations for outdoor activities.
-
-The application evaluates available conditions to help users understand whether the weather is suitable for outdoor plans.
-
-### 💯 Comfort Score
-
-A dedicated score that combines multiple environmental conditions into an easier-to-understand representation of overall comfort.
-
-### 🧬 Weather DNA
-
-A personalized weather experience designed around weather preferences and how current conditions relate to the user's preferred environment.
-
-### 🌬️ Sun & Air
-
-Environmental information including:
-
-* Sunrise
-* Sunset
-* Daylight
-* UV index
-* Air quality
-* PM2.5
-* PM10
-* Carbon monoxide
-* Nitrogen dioxide
-* Ozone
-
-### 🚨 Weather Alerts
-
-Important weather conditions are highlighted separately so users can quickly identify potentially significant events.
-
-### 🌧️ Rain Radar
-
-Interactive precipitation/radar visualization for exploring weather around a selected location.
-
-### 🌍 Compare Locations
-
-Compare weather conditions between multiple locations.
-
-Useful for deciding between cities, destinations, or travel locations.
-
-### 📌 Saved Locations
-
-Save frequently viewed locations and quickly switch between them.
-
-Saved preferences are stored locally in the browser.
-
-### 📸 Weather Snapshot
-
-Create a focused snapshot of the current weather information.
-
-### 🌓 Dark & Light Mode
-
-Switch between dark and light themes with persistent preferences.
-
-### 🌡️ Metric & Imperial Units
-
-Switch between metric and imperial measurement systems.
-
-### ⌨️ Keyboard Support
-
-Keyboard-friendly interactions for improved navigation and usability.
-
-### 📱 Responsive Design
-
-Designed for:
-
-* Desktop
-* Laptop
-* Tablet
-* Mobile
+* **Frontend Framework:** React 18 with functional components and custom state hooks
+* **Design System:** Custom dark theme palette with editorial typography, subtle borders, and accessible high-contrast accents
+* **Icons:** Lucide React
+* **Styling:** Tailwind CSS + CSS Custom Properties
+* **Build System:** Webpack / React Scripts
 
 ---
 
-# 🏗️ Architecture
-
-The application follows a modular React component architecture.
+## 📂 Project Structure
 
 ```text
-                         ┌─────────────────────┐
-                         │        User         │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │      React UI       │
-                         │                     │
-                         │  Weather Dashboard │
-                         │  Forecasts          │
-                         │  Radar              │
-                         │  Insights           │
-                         │  Alerts             │
-                         │  Comparison         │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │  Weather Service    │
-                         │                     │
-                         │  API Requests       │
-                         │  Geocoding          │
-                         │  Data Processing    │
-                         │  Caching            │
-                         └──────────┬──────────┘
-                                    │
-                         ┌──────────┴──────────┐
-                         ▼                     ▼
-                ┌─────────────────┐   ┌─────────────────┐
-                │   Open-Meteo    │   │  OpenWeather    │
-                │      APIs       │   │      API        │
-                └─────────────────┘   └─────────────────┘
-```
-
----
-
-# 🛠️ Tech Stack
-
-### Frontend
-
-* React 18
-* JavaScript
-* HTML5
-* CSS3
-* React Hooks
-
-### UI
-
-* Lucide React
-
-### Weather & Location Data
-
-* Open-Meteo
-* Open-Meteo Geocoding
-* OpenWeather API support
-* Reverse geocoding services
-
-### Testing
-
-* Jest
-* React Testing Library
-
-### Build & Deployment
-
-* Create React App
-* React Scripts
-* Bun
-* npm
-* Vercel
-* GitHub
-
----
-
-# 📂 Project Structure
-
-```text
-Weather_Website/
-│
 ├── public/
-│   ├── index.html
+│   ├── index.html          # SEO, OpenGraph, JSON-LD schema
 │   ├── manifest.json
-│   ├── robots.txt
-│   └── sitemap.xml
-│
+│   └── favicon.ico
 ├── src/
-│   │
 │   ├── Components/
-│   │   ├── ActivityAdvisor/
-│   │   ├── ComfortScore/
-│   │   ├── CompareLocations/
-│   │   ├── DailyForecast/
-│   │   ├── HeroWeather/
-│   │   ├── HourlyForecast/
-│   │   ├── Navbar/
-│   │   ├── RainRadar/
-│   │   ├── SavedLocationsModal/
-│   │   ├── SnapshotModal/
-│   │   ├── SunAndAir/
-│   │   ├── WeatherAlerts/
-│   │   ├── WeatherApp/
-│   │   ├── WeatherBackground/
-│   │   ├── WeatherDNA/
-│   │   └── WeatherIntelligence/
-│   │
-│   ├── services/
-│   │   └── weatherService.js
-│   │
-│   ├── App.js
-│   ├── App.css
-│   └── index.js
-│
-├── .env.example
-├── package.json
-└── README.md
+│   │   ├── Portfolio/      # Personal brand, Hero, Projects, Experience, Skills, Journey, Contact
+│   │   ├── CyberNavbar/    # Enterprise SOC incident navigation
+│   │   ├── IncidentView/   # Real-time telemetry, IOCs, and tactical decision options
+│   │   ├── RiskPostureHUD/ # Live metrics: Security, Continuity, Capital Loss, Downtime
+│   │   ├── AttackTimeline/ # Chronological incident milestones & audit trail
+│   │   ├── ExecutiveDashboard/ # C-suite briefing on business interruption & compliance
+│   │   └── PostMortemReport/   # NIST-aligned 5-dimension executive scorecard
+│   ├── sim-engine/
+│   │   ├── scenarios/      # Ransomware, Cloud Exposure, Phishing ATO
+│   │   ├── scoringModel.js # Deterministic state machine & impact calculation
+│   │   └── types.js        # Engine constants
+│   ├── App.js              # Dual-mode container (Portfolio + CyberSim launcher)
+│   └── index.css           # Design tokens and typography
+└── package.json
 ```
 
 ---
 
-# 🔄 Weather Data
-
-The application uses weather APIs to retrieve and process meteorological information.
-
-The weather service supports Open-Meteo and OpenWeather-based data sources depending on the functionality and available configuration.
-
-The application also uses caching to reduce unnecessary repeated requests.
-
----
-
-# 🔐 Environment Variables
-
-If your configuration requires an OpenWeather API key, create a `.env` file:
-
-```env
-REACT_APP_API_KEY=your_api_key_here
-```
-
-### Important
-
-Never commit your real API key to GitHub.
-
-For Vercel deployment, add environment variables through:
-
-**Vercel → Project → Settings → Environment Variables**
-
-A `.env.example` file should contain only variable names/placeholders and never real credentials.
-
----
-
-# 🚀 Installation
-
-## Clone the repository
+## 💻 Local Development
 
 ```bash
+# Clone the repository
 git clone https://github.com/jatinsingh82/Weather_Website.git
-```
 
-## Enter the project
-
-```bash
-cd Weather_Website
-```
-
-## Install dependencies
-
-Using Bun:
-
-```bash
-bun install
-```
-
-Or npm:
-
-```bash
+# Install dependencies
 npm install
-```
 
-## Start development server
-
-```bash
-bun start
-```
-
-or:
-
-```bash
+# Start development server
 npm start
 ```
 
-The application will run at:
-
-```text
-http://localhost:3000
-```
-
 ---
 
-# 🏭 Production Build
+## 📬 Contact & Profiles
 
-Create a production build with:
-
-```bash
-bun run build
-```
-
-The generated production files will be placed inside:
-
-```text
-build/
-```
-
-The production build should complete successfully before deployment.
-
----
-
-# ☁️ Deployment
-
-The application can be deployed through Vercel.
-
-Recommended flow:
-
-```text
-GitHub
-   ↓
-Vercel
-   ↓
-Install Dependencies
-   ↓
-Production Build
-   ↓
-Live Website
-```
-
-Configure any required environment variables inside the Vercel project settings.
-
----
-
-# 🧪 Testing
-
-Run the project's test suite with:
-
-```bash
-npm test
-```
-
-Testing is supported through:
-
-* Jest
-* React Testing Library
-
----
-
-# 🎯 Product Philosophy
-
-Traditional weather applications often provide large amounts of data without explaining what that data means.
-
-This project focuses on turning weather information into useful context.
-
-Instead of only showing:
-
-```text
-28°C
-72% Humidity
-15 km/h Wind
-```
-
-the application aims to help answer:
-
-```text
-How does it feel?
-
-Is it comfortable?
-
-Should I go outside?
-
-What will happen next?
-
-Is there anything important I should know?
-```
-
-The result is a weather experience focused on **understanding conditions**, not simply reading numbers.
-
----
-
-# 🔮 Future Improvements
-
-Potential future improvements include:
-
-* Historical weather trends
-* Advanced weather-map layers
-* Forecast confidence visualization
-* More detailed weather timelines
-* Enhanced personalization
-* Offline/PWA improvements
-* Weather notifications
-* Advanced data visualization
-
----
-
-# 📸 Screenshots
-
-Screenshots can be added here to showcase the application.
-
-Recommended sections:
-
-### Dashboard
-
-Main weather overview and current conditions.
-
-### Forecast
-
-Hourly and daily forecasting experience.
-
-### Weather Intelligence
-
-Insights, recommendations, and environmental information.
-
-### Radar
-
-Interactive weather/rain radar.
-
-### Mobile
-
-Responsive mobile experience.
-
----
-
-# 👨‍💻 Author
-
-**Jatin Singh**
-
-Computer Science Engineering Graduate
-MBA (IT) — Business Analytics
-
----
-
-## ⭐ Support
-
-If you find this project interesting, consider giving the repository a star on GitHub.
-
-[⭐ Star the repository](https://github.com/jatinsingh82/Weather_Website)
+* **GitHub:** [@jatinsingh82](https://github.com/jatinsingh82)
+* **Email:** [immanuel.0747@gmail.com](mailto:immanuel.0747@gmail.com)
+* **Role:** Cybersecurity Analyst — Cyber Strategy & Transformation

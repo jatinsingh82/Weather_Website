@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders WeatherNow app without crashing', () => {
+test('renders Jatin Singh portfolio headline without crashing', () => {
   render(<App />);
-  const brandElements = screen.getAllByText(/WeatherNow/i);
-  expect(brandElements.length).toBeGreaterThan(0);
+  const heroElements = screen.getAllByText(/Jatin Singh/i);
+  expect(heroElements.length).toBeGreaterThan(0);
 });
 
+test('renders CyberSim flagship showcase', () => {
+  render(<App />);
+  const cyberElements = screen.getAllByText(/CyberSim/i);
+  expect(cyberElements.length).toBeGreaterThan(0);
+});
