@@ -30,6 +30,29 @@ the application aims to answer:
 
 ---
 
+## 📸 Interface Preview
+
+<!-- Place high-resolution screenshots in public/screenshots/ to display below -->
+<div align="center">
+  <img src="public/screenshots/dashboard-overview.png" alt="Weather Intelligence Platform Dashboard" width="850" />
+</div>
+
+<details>
+<summary><b>🔍 View Additional Platform Screens</b></summary>
+<br />
+
+| Hourly & 7-Day Forecasting | Activity Advisor & Comfort Score |
+| :---: | :---: |
+| *(Add `public/screenshots/forecast-hourly-daily.png`)* | *(Add `public/screenshots/activity-comfort.png`)* |
+
+| RainViewer Precipitation Radar | Multi-City Location Comparison |
+| :---: | :---: |
+| *(Add `public/screenshots/radar-doppler.png`)* | *(Add `public/screenshots/location-comparison.png`)* |
+
+</details>
+
+---
+
 ## ✨ Features
 
 ### 🌡️ Real-Time Weather
