@@ -1,86 +1,136 @@
 import React, { useState } from 'react';
-import { AlertTriangle, Wind, CloudRain, Flame, Snowflake, X } from 'lucide-react';
+import {
+  AlertTriangle,
+  Wind,
+  CloudRain,
+  Flame,
+  Snowflake,
+  Sun,
+  TrendingDown,
+  Clock,
+  Sparkles,
+  X
+} from 'lucide-react';
+import { detectSmartWeatherEvents } from '../../utils/weatherUtils';
 import './WeatherAlerts.css';
 
 export default function WeatherAlerts({ weather }) {
-  const [dismissed, setDismissed] = useState(false);
+  const [dismissedIds, setDismissedIds] = useState(new Set());
 
-  if (dismissed || !weather || !weather.current) return null;
+  if (!weather || !weather.current) return null;
 
   const { temp, windSpeed, condition } = weather.current;
   const condLower = (condition || '').toLowerCase();
-  const maxRain = weather.hourly?.length > 0 ? Math.max(...weather.hourly.slice(0, 6).map((h) => h.pop || 0)) : 0;
+  const timezoneOffsetSeconds = weather.timezoneOffsetSeconds || 0;
 
-  const alerts = [];
+  // 1. Proactive Timed Smart Events
+  const smartEvents = detectSmartWeatherEvents(weather, timezoneOffsetSeconds);
+
+  // 2. Severe Threshold Alerts
+  const severeAlerts = [];
 
   if (condLower.includes('thunder') || condLower.includes('storm')) {
-    alerts.push({
+    severeAlerts.push({
+      id: 'storm-critical',
       type: 'thunderstorm',
+      severity: 'warning',
       icon: <AlertTriangle size={18} className="text-amber-400" />,
-      title: 'Thunderstorm Active / Imminent',
-      desc: 'Electrical activity detected in the area. Seek sturdy indoor shelter.',
-      isOfficial: false,
-    });
-  } else if (maxRain >= 75 || condLower.includes('heavy rain')) {
-    alerts.push({
-      type: 'rain',
-      icon: <CloudRain size={18} className="text-sky-400" />,
-      title: 'Heavy Precipitation Advisory',
-      desc: `High rainfall probability of ${maxRain}% expected within the next 6 hours. Expect road spray and standing water.`,
-      isOfficial: false,
+      title: 'Thunderstorm Active in Immediate Vicinity',
+      timing: 'Active Now',
+      desc: 'Electrical activity detected in the local Doppler sweep. Seek indoor shelter.',
     });
   }
 
   if (windSpeed >= 42) {
-    alerts.push({
+    severeAlerts.push({
+      id: 'wind-severe',
       type: 'wind',
+      severity: 'advisory',
       icon: <Wind size={18} className="text-amber-400" />,
-      title: 'High Wind Advisory',
-      desc: `Sustained winds exceeding ${windSpeed} km/h. Secure loose outdoor items and exercise caution when driving high-sided vehicles.`,
-      isOfficial: false,
+      title: `High Sustained Winds (${windSpeed} km/h)`,
+      timing: 'Ongoing',
+      desc: 'Secure loose outdoor items and exercise caution when driving high-sided vehicles.',
     });
   }
 
   if (temp >= 36) {
-    alerts.push({
+    severeAlerts.push({
+      id: 'heat-severe',
       type: 'heat',
+      severity: 'warning',
       icon: <Flame size={18} className="text-rose-400" />,
-      title: 'Excessive Heat Advisory',
-      desc: `Ambient temperatures reaching ${temp}°C. Stay hydrated, avoid strenuous midday activity, and stay in cool areas.`,
-      isOfficial: false,
+      title: `Excessive Heat Advisory (${temp}°C)`,
+      timing: 'Peak Hours',
+      desc: 'Elevated thermal stress. Maintain hydration and minimize strenuous midday exposure.',
     });
   } else if (temp <= -2) {
-    alerts.push({
+    severeAlerts.push({
+      id: 'freeze-severe',
       type: 'freeze',
+      severity: 'warning',
       icon: <Snowflake size={18} className="text-cyan-400" />,
-      title: 'Freezing Temperature Advisory',
-      desc: `Sub-zero conditions at ${temp}°C. Watch for black ice on elevated roads and protect exposed plumbing.`,
-      isOfficial: false,
+      title: `Sub-Zero Freeze Advisory (${temp}°C)`,
+      timing: 'Active',
+      desc: 'Watch for black ice formation on untreated bridges and road surfaces.',
     });
   }
 
-  if (alerts.length === 0) return null;
+  // Combine and deduplicate
+  const allEvents = [...severeAlerts, ...smartEvents].filter(
+    (e) => !dismissedIds.has(e.id)
+  );
+
+  if (allEvents.length === 0) return null;
+
+  const dismissEvent = (id) => {
+    setDismissedIds((prev) => new Set([...prev, id]));
+  };
+
+  const getEventIcon = (event) => {
+    if (event.icon) return event.icon;
+    switch (event.type) {
+      case 'rain':
+        return <CloudRain size={18} className="text-sky-400" />;
+      case 'clear':
+        return <Sparkles size={18} className="text-emerald-400" />;
+      case 'temp-drop':
+        return <TrendingDown size={18} className="text-sky-400" />;
+      case 'uv':
+        return <Sun size={18} className="text-amber-400" />;
+      case 'wind':
+        return <Wind size={18} className="text-amber-400" />;
+      case 'freeze':
+        return <Snowflake size={18} className="text-cyan-400" />;
+      default:
+        return <AlertTriangle size={18} className="text-amber-400" />;
+    }
+  };
 
   return (
-    <div className="alerts-container" role="region" aria-label="Weather Advisories">
-      {alerts.map((alert, index) => (
-        <div key={`alert-${alert.type}-${index}`} className={`alert-banner alert-${alert.type}`}>
+    <div className="alerts-container" role="region" aria-label="Smart Weather Events & Advisories">
+      {allEvents.map((evt) => (
+        <div key={`alert-${evt.id}`} className={`alert-banner alert-${evt.severity || 'advisory'}`}>
           <div className="alert-content">
-            <div className="alert-icon-wrap">{alert.icon}</div>
+            <div className="alert-icon-wrap">{getEventIcon(evt)}</div>
             <div className="alert-text">
               <div className="alert-title-row">
-                <span className="alert-heading">{alert.title}</span>
-                <span className="alert-tag">Weather-based application insight</span>
+                <span className="alert-heading">{evt.title}</span>
+                {evt.timing && (
+                  <span className="alert-timing-pill">
+                    <Clock size={11} />
+                    <span>{evt.timing}</span>
+                  </span>
+                )}
               </div>
-              <p className="alert-desc">{alert.desc}</p>
+              <p className="alert-desc">{evt.desc || evt.description}</p>
             </div>
           </div>
           <button
             type="button"
             className="alert-dismiss-btn"
-            onClick={() => setDismissed(true)}
-            title="Dismiss advisory"
-            aria-label="Dismiss advisory"
+            onClick={() => dismissEvent(evt.id)}
+            title="Dismiss notification"
+            aria-label="Dismiss notification"
           >
             <X size={15} />
           </button>

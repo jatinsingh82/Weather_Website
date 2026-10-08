@@ -5,20 +5,21 @@ import {
   Sun,
   Clock,
   AlertCircle,
-  Activity
+  Activity,
+  Camera,
+  Sparkles
 } from 'lucide-react';
-import { getSunProgress } from '../../utils/weatherUtils';
+import { getSunProgress, calculateAstronomy } from '../../utils/weatherUtils';
 import './SunAndAir.css';
 
 export default function SunAndAir({ current, airQuality, timezoneOffsetSeconds }) {
   if (!current) return null;
 
   const sunData = getSunProgress(current.sunrise, current.sunset, timezoneOffsetSeconds);
+  const astronomy = calculateAstronomy(current, timezoneOffsetSeconds);
 
   // SVG arc parameters for sun position
-  // Arc from (10, 80) to (190, 80) with control point (100, 10)
   const p = sunData.progress / 100;
-  // Quadratic bezier: B(t) = (1-t)^2 P0 + 2(1-t)t P1 + t^2 P2
   const x0 = 15, y0 = 85;
   const x1 = 100, y1 = 15;
   const x2 = 185, y2 = 85;
@@ -48,10 +49,7 @@ export default function SunAndAir({ current, airQuality, timezoneOffsetSeconds }
         {/* Visual arc */}
         <div className="arc-visual-container">
           <svg className="sun-arc-svg" viewBox="0 0 200 95">
-            {/* Horizon line */}
             <line x1="10" y1="85" x2="190" y2="85" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3 3" />
-            
-            {/* Trajectory path */}
             <path
               d="M 15 85 Q 100 15 185 85"
               fill="none"
@@ -59,8 +57,6 @@ export default function SunAndAir({ current, airQuality, timezoneOffsetSeconds }
               strokeWidth="2.5"
               strokeDasharray="4 4"
             />
-
-            {/* Sun position marker */}
             <circle
               cx={sunX}
               cy={sunY}
@@ -97,7 +93,49 @@ export default function SunAndAir({ current, airQuality, timezoneOffsetSeconds }
         </div>
       </div>
 
-      {/* Air Quality & Environment Card */}
+      {/* Photography & Astronomy Experience Card */}
+      <div className="card-item photo-astronomy-card">
+        <div className="card-header">
+          <div className="header-title-group">
+            <Camera size={18} className="text-indigo-400" />
+            <h3 className="card-title">Photography & Astronomy</h3>
+          </div>
+          <div className="lunar-badge" title={`Illumination: ${astronomy.illumination}%`}>
+            <span className="moon-icon">{astronomy.moonPhaseIcon}</span>
+            <span>{astronomy.moonPhaseName} ({astronomy.illumination}%)</span>
+          </div>
+        </div>
+
+        <div className="photo-windows-body">
+          {/* Recommended photography window */}
+          <div className="photo-window-hero">
+            <div className="window-hero-top">
+              <Sparkles size={13} className="text-amber-300" />
+              <span className="window-hero-label">RECOMMENDED PHOTO WINDOW</span>
+            </div>
+            <span className="window-hero-time">{astronomy.bestPhotographyWindow}</span>
+            <p className="window-hero-note">{astronomy.photoConditionsNote}</p>
+          </div>
+
+          {/* Golden & Blue hour strip */}
+          <div className="light-hours-grid">
+            <div className="light-hour-box">
+              <span className="light-label">Morning Golden Hour</span>
+              <span className="light-time">{astronomy.goldenHourMorning}</span>
+            </div>
+            <div className="light-hour-box">
+              <span className="light-label">Evening Golden Hour</span>
+              <span className="light-time">{astronomy.goldenHourEvening}</span>
+            </div>
+            <div className="light-hour-box">
+              <span className="light-label">Dusk Blue Hour</span>
+              <span className="light-time">{astronomy.blueHourEvening}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Air Quality & Atmosphere Card */}
       <div className="card-item air-quality-card">
         <div className="card-header">
           <div className="header-title-group">

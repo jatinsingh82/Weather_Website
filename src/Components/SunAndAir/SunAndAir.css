@@ -129,6 +129,115 @@
   font-weight: 500;
 }
 
+/* Photography & Astronomy Experience */
+.photo-astronomy-card {
+  grid-column: span 1;
+}
+
+.lunar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #c084fc;
+  background: rgba(192, 132, 252, 0.12);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.moon-icon {
+  font-size: 13px;
+}
+
+.photo-windows-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.photo-window-hero {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+[data-theme='light'] .photo-window-hero {
+  background: linear-gradient(135deg, #faf5ff 0%, #f8fafc 100%);
+  border-color: rgba(192, 132, 252, 0.3);
+}
+
+.window-hero-top {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.window-hero-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #fbbf24;
+  letter-spacing: 0.05em;
+}
+
+.window-hero-time {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+[data-theme='light'] .window-hero-time {
+  color: #0f172a;
+}
+
+.window-hero-note {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.light-hours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.light-hour-box {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+[data-theme='light'] .light-hour-box {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.light-label {
+  font-size: 10.5px;
+  color: #94a3b8;
+}
+
+.light-time {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+[data-theme='light'] .light-time {
+  color: #0f172a;
+}
+
 /* Air Quality */
 .aqi-level-badge {
   font-size: 11px;

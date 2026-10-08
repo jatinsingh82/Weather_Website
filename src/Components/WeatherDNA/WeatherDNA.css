@@ -64,6 +64,201 @@
   color: #64748b;
 }
 
+.dna-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dna-pref-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme='light'] .dna-pref-toggle-btn {
+  background: #f1f5f9;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #334155;
+}
+
+.dna-pref-toggle-btn.active,
+.dna-pref-toggle-btn:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+/* Personal Compatibility Spotlight */
+.personal-compatibility-spotlight {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+[data-theme='light'] .personal-compatibility-spotlight {
+  background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 100%);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.compat-score-col {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-right: 20px;
+}
+
+[data-theme='light'] .compat-score-col {
+  border-right-color: rgba(0, 0, 0, 0.08);
+}
+
+.compat-pct {
+  font-size: 38px;
+  font-weight: 900;
+  color: #10b981;
+  line-height: 1;
+}
+
+.compat-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.compat-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+[data-theme='light'] .compat-title {
+  color: #0f172a;
+}
+
+.compat-grade {
+  font-size: 12px;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+[data-theme='light'] .compat-grade {
+  color: #0284c7;
+}
+
+.compat-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.compat-item-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+[data-theme='light'] .compat-item-row {
+  color: #475569;
+}
+
+/* Profile Customizer Panel */
+.profile-customizer-panel {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+[data-theme='light'] .profile-customizer-panel {
+  background: #f1f5f9;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pref-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+[data-theme='light'] .pref-label {
+  color: #475569;
+}
+
+.pref-chips-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.pref-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+[data-theme='light'] .pref-chip {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #475569;
+}
+
+.pref-chip.selected {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .personal-compatibility-spotlight {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .compat-score-col {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-right: 0;
+    padding-bottom: 12px;
+  }
+}
+
 .dna-tag-badge {
   display: flex;
   align-items: center;

@@ -346,8 +346,9 @@ export default function WeatherApp() {
 
               {/* Weather DNA — Personality summary of the day */}
               <WeatherDNA
+                weather={weather}
                 hourly={weather.hourly}
-                currentTemp={weather.current.temp}
+                currentTemp={weather.current?.temp}
                 unit={unit}
               />
 
