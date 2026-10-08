@@ -10,8 +10,7 @@ import {
   Clock,
   SlidersHorizontal,
   BookmarkCheck,
-  Camera,
-  Share2
+  Camera
 } from 'lucide-react';
 import { searchLocations } from '../../services/weatherService';
 import './Navbar.css';
@@ -174,6 +173,7 @@ export default function Navbar({
             <Search className="search-icon-svg" size={18} />
             <input
               type="text"
+              role="combobox"
               className="search-input-field cityInput"
               placeholder="Search city, region, or worldwide..."
               value={query}
@@ -185,6 +185,8 @@ export default function Navbar({
               onKeyDown={handleKeyDown}
               aria-label="Search city"
               aria-expanded={isOpen}
+              aria-autocomplete="list"
+              aria-controls="search-dropdown-menu"
               autoComplete="off"
             />
 
@@ -217,7 +219,7 @@ export default function Navbar({
 
           {/* Autocomplete / Recent Searches Dropdown */}
           {isOpen && (
-            <div className="search-dropdown-menu">
+            <div id="search-dropdown-menu" className="search-dropdown-menu">
               {suggestions.length > 0 ? (
                 <div className="dropdown-section">
                   <div className="dropdown-section-title">Matching Locations</div>

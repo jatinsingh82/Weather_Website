@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-  Wind,
-  Droplets,
   Eye,
   Gauge,
   Sunrise,
@@ -10,9 +8,7 @@ import {
   Bookmark,
   BookmarkCheck,
   Calendar,
-  Clock,
-  ArrowUpRight,
-  SunMedium
+  Clock
 } from 'lucide-react';
 import {
   formatTemp,
@@ -40,12 +36,10 @@ export default function HeroWeather({
 
   const {
     city,
-    country,
     displayName,
     timezoneOffsetSeconds,
     lastUpdated,
     current,
-    daily
   } = weather;
 
   const {
@@ -61,7 +55,6 @@ export default function HeroWeather({
     windDirectionCompass,
     pressure,
     visibility,
-    uvIndex,
     sunrise,
     sunset,
     isDay

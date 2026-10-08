@@ -4,7 +4,6 @@ import {
   formatTemp,
   formatTempUnit,
   formatWindSpeed,
-  formatWindUnit,
   formatHourTime,
   getWeatherAssetIcon
 } from '../../utils/weatherUtils';

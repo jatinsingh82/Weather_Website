@@ -15,8 +15,15 @@ import RainRadar from '../RainRadar/RainRadar';
 import SavedLocationsModal from '../SavedLocationsModal/SavedLocationsModal';
 import CompareLocations from '../CompareLocations/CompareLocations';
 import SnapshotModal from '../SnapshotModal/SnapshotModal';
-import { AlertCircle, RefreshCw, Sparkles, MapPin } from 'lucide-react';
+import { AlertCircle, RefreshCw } from 'lucide-react';
 import './WeatherApp.css';
+
+const DEFAULT_COORDS = {
+  lat: 51.5074,
+  lon: -0.1278,
+  name: 'London',
+  country: 'United Kingdom',
+};
 
 const DEFAULT_SAVED_LOCATIONS = [
   { name: 'London', country: 'United Kingdom', lat: 51.5074, lon: -0.1278 },
@@ -61,12 +68,7 @@ export default function WeatherApp() {
   const [error, setError] = useState(null);
 
   // Active coordinates
-  const [coords, setCoords] = useState({
-    lat: 51.5074,
-    lon: -0.1278,
-    name: 'London',
-    country: 'United Kingdom',
-  });
+  const [coords, setCoords] = useState(DEFAULT_COORDS);
 
   // Modals state
   const [isSavedModalOpen, setIsSavedModalOpen] = useState(false);
@@ -143,12 +145,12 @@ export default function WeatherApp() {
         },
         () => {
           // If rejected or error, use default
-          loadWeather(coords.lat, coords.lon, coords);
+          loadWeather(DEFAULT_COORDS.lat, DEFAULT_COORDS.lon, DEFAULT_COORDS);
         },
         { timeout: 5000 }
       );
     } else {
-      loadWeather(coords.lat, coords.lon, coords);
+      loadWeather(DEFAULT_COORDS.lat, DEFAULT_COORDS.lon, DEFAULT_COORDS);
     }
   }, [loadWeather]);
 

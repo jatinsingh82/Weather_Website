@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { X, Camera, Copy, Check, Download, Share2 } from 'lucide-react';
+import { X, Camera, Copy, Check, Download } from 'lucide-react';
 import { formatTemp, formatTempUnit, getWeatherAssetIcon } from '../../utils/weatherUtils';
 import './SnapshotModal.css';
 
@@ -9,7 +9,7 @@ export default function SnapshotModal({ isOpen, onClose, weather, unit }) {
 
   if (!isOpen || !weather || !weather.current) return null;
 
-  const { city, country, displayName, current } = weather;
+  const { city, displayName, current } = weather;
   const assetIcon = getWeatherAssetIcon(current.iconCode);
   const dateStr = new Date().toLocaleDateString(undefined, {
     weekday: 'long',
@@ -79,6 +79,8 @@ export default function SnapshotModal({ isOpen, onClose, weather, unit }) {
       310
     );
 
+    let linkTriggered = false;
+
     // Draw asset image onto canvas
     const img = new Image();
     img.crossOrigin = 'anonymous';
@@ -89,6 +91,7 @@ export default function SnapshotModal({ isOpen, onClose, weather, unit }) {
       link.download = `weather-${city.toLowerCase().replace(/\s+/g, '-')}.png`;
       link.href = canvas.toDataURL('image/png');
       link.click();
+      linkTriggered = true;
     };
     // If image fails or finishes fast, trigger anyway
     setTimeout(() => {
@@ -97,9 +100,9 @@ export default function SnapshotModal({ isOpen, onClose, weather, unit }) {
         link.download = `weather-${city.toLowerCase().replace(/\s+/g, '-')}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
+        linkTriggered = true;
       }
     }, 400);
-    let linkTriggered = false;
   };
 
   return (

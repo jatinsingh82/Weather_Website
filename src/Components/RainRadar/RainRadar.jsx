@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Radar, Play, Pause, RefreshCw, Layers, ExternalLink } from 'lucide-react';
+import { Radar, Play, Pause, RefreshCw, ExternalLink } from 'lucide-react';
 import './RainRadar.css';
 
 export default function RainRadar({ lat, lon, city }) {

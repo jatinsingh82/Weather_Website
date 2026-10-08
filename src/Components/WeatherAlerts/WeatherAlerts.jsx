@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AlertTriangle, Info, Wind, CloudRain, Flame, Snowflake, X } from 'lucide-react';
+import { AlertTriangle, Wind, CloudRain, Flame, Snowflake, X } from 'lucide-react';
 import './WeatherAlerts.css';
 
 export default function WeatherAlerts({ weather }) {

@@ -4,8 +4,6 @@ import {
   Sunset,
   Sun,
   Clock,
-  Wind,
-  ShieldCheck,
   AlertCircle,
   Activity
 } from 'lucide-react';

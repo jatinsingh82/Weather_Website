@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { CalendarDays, ChevronDown, ChevronUp, CloudRain, Sunrise, Sunset, Wind, Sun } from 'lucide-react';
 import {
   formatTemp,
-  formatTempUnit,
   formatWindSpeed,
   formatWindUnit,
   formatDayDate,

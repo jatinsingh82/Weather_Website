@@ -7,7 +7,6 @@ import {
   Car,
   Camera,
   CheckCircle2,
-  AlertCircle,
   HelpCircle
 } from 'lucide-react';
 import { getActivityRecommendations } from '../../utils/weatherUtils';

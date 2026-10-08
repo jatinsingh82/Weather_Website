@@ -6,8 +6,7 @@ import {
   CloudRain,
   Wind,
   Droplets,
-  BookOpen,
-  CalendarRange
+  BookOpen
 } from 'lucide-react';
 import {
   detectWeatherChanges,

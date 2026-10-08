@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, SlidersHorizontal, Plus, Droplets, Wind, CloudRain, Thermometer } from 'lucide-react';
+import { X, SlidersHorizontal, Droplets, Wind, CloudRain, Thermometer } from 'lucide-react';
 import { getCompleteWeatherData, searchLocations } from '../../services/weatherService';
 import { formatTemp, formatTempUnit, formatWindSpeed, formatWindUnit, getWeatherAssetIcon } from '../../utils/weatherUtils';
 import './CompareLocations.css';
@@ -14,12 +14,12 @@ export default function CompareLocations({
   const [locationsData, setLocationsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   // Initialize with current location + up to 2 saved locations
   useEffect(() => {
     if (!isOpen || !currentWeather) return;
 
+    let isCancelled = false;
     const initial = [currentWeather];
     setLocationsData(initial);
 
@@ -32,16 +32,22 @@ export default function CompareLocations({
       candidates.forEach(async (cand) => {
         try {
           const w = await getCompleteWeatherData(cand.lat || 51.5, cand.lon || 0, cand);
-          setLocationsData((prev) => {
-            if (prev.some((p) => p.city.toLowerCase() === w.city.toLowerCase())) return prev;
-            return [...prev, w].slice(0, 3);
-          });
+          if (!isCancelled) {
+            setLocationsData((prev) => {
+              if (prev.some((p) => p.city.toLowerCase() === w.city.toLowerCase())) return prev;
+              return [...prev, w].slice(0, 3);
+            });
+          }
         } catch (e) {
           console.warn('Compare fetch error:', e);
         }
       });
     }
-  }, [isOpen, currentWeather]);
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [isOpen, currentWeather, savedLocations]);
 
   // Search autocomplete to add another city
   useEffect(() => {
@@ -62,7 +68,6 @@ export default function CompareLocations({
 
   const addCityToCompare = async (item) => {
     if (locationsData.length >= 3) return;
-    setIsLoading(true);
     setSearchQuery('');
     setSearchResults([]);
     try {
@@ -73,8 +78,6 @@ export default function CompareLocations({
       });
     } catch (e) {
       console.warn('Failed to fetch comparison location:', e);
-    } finally {
-      setIsLoading(false);
     }
   };
 
