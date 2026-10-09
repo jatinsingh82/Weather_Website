@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://github.com/jatinsingh82/sitemap.xml
+Sitemap: https://weather-website-ten-phi.vercel.app/sitemap.xml

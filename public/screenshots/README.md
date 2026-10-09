@@ -1,6 +1,6 @@
 # Screenshots Directory
 
-Store high-resolution interface captures here to display in the README and portfolio presentation.
+Store high-resolution interface captures here to display in the README and project documentation.
 
 ### Recommended Screen Captures:
 1. `dashboard-overview.png` — Main weather hero, current conditions, search bar, and dynamic background.

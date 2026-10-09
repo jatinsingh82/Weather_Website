@@ -1,70 +1,96 @@
 /**
- * Formatting and telemetry helpers for CyberSim SOC
+ * Weather formatting and metric conversion helpers
  */
 
-export function formatCurrency(amount) {
-  if (amount == null) return '$0';
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0
-  }).format(amount);
+export function convertTemp(celsius, unit = 'C') {
+  if (celsius == null) return '--';
+  if (unit === 'F') {
+    return Math.round((celsius * 9) / 5 + 32);
+  }
+  return Math.round(celsius);
 }
 
-export function formatNumber(num) {
-  if (num == null) return '0';
-  return new Intl.NumberFormat('en-US').format(num);
+export function convertSpeed(kmh, unit = 'metric') {
+  if (kmh == null) return '--';
+  if (unit === 'imperial') {
+    return `${Math.round(kmh * 0.621371)} mph`;
+  }
+  return `${Math.round(kmh)} km/h`;
 }
 
-export function getSeverityStyle(severity) {
-  const sev = (severity || '').toUpperCase();
-  if (sev.includes('CRITICAL') || sev.includes('SEV-1')) {
-    return {
-      bg: 'bg-rose-950/60',
-      border: 'border-rose-500/50',
-      text: 'text-rose-400',
-      dot: 'bg-rose-500'
-    };
+export function convertPrecip(mm, unit = 'metric') {
+  if (mm == null) return '0 mm';
+  if (unit === 'imperial') {
+    return `${(mm * 0.0393701).toFixed(2)} in`;
   }
-  if (sev.includes('HIGH') || sev.includes('SEV-2')) {
-    return {
-      bg: 'bg-orange-950/60',
-      border: 'border-orange-500/50',
-      text: 'text-orange-400',
-      dot: 'bg-orange-500'
-    };
-  }
-  if (sev.includes('MEDIUM') || sev.includes('MODERATE') || sev.includes('SEV-3')) {
-    return {
-      bg: 'bg-amber-950/60',
-      border: 'border-amber-500/50',
-      text: 'text-amber-400',
-      dot: 'bg-amber-500'
-    };
-  }
-  return {
-    bg: 'bg-emerald-950/60',
-    border: 'border-emerald-500/50',
-    text: 'text-emerald-400',
-    dot: 'bg-emerald-500'
-  };
+  return `${mm.toFixed(1)} mm`;
 }
 
-export function getCategoryBadge(category) {
-  switch (category) {
-    case 'INITIAL_ACCESS':
-      return { label: 'Initial Access', color: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30' };
-    case 'PRIV_ESCALATION':
-      return { label: 'Privilege Escalation', color: 'bg-amber-500/20 text-amber-300 border-amber-500/30' };
-    case 'LATERAL_MOVEMENT':
-      return { label: 'Lateral Movement', color: 'bg-orange-500/20 text-orange-300 border-orange-500/30' };
-    case 'IMPACT':
-      return { label: 'Impact / Encryption', color: 'bg-rose-500/20 text-rose-300 border-rose-500/30' };
-    case 'EXFILTRATION':
-      return { label: 'Data Exfiltration', color: 'bg-purple-500/20 text-purple-300 border-purple-500/30' };
-    case 'RECOVERY':
-      return { label: 'Eradication & Recovery', color: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' };
-    default:
-      return { label: category || 'Incident Event', color: 'bg-slate-500/20 text-slate-300 border-slate-500/30' };
+export function convertPressure(hPa, unit = 'metric') {
+  if (hPa == null) return '--';
+  if (unit === 'imperial') {
+    return `${(hPa * 0.02953).toFixed(2)} inHg`;
   }
+  return `${Math.round(hPa)} hPa`;
+}
+
+export function formatTime(isoString) {
+  if (!isoString) return '--:--';
+  try {
+    const date = new Date(isoString);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+  } catch {
+    return isoString;
+  }
+}
+
+export function formatHour(isoString) {
+  if (!isoString) return '--';
+  try {
+    const date = new Date(isoString);
+    return date.toLocaleTimeString([], { hour: 'numeric', hour12: true });
+  } catch {
+    return isoString;
+  }
+}
+
+export function formatDayName(isoDate, index = 0) {
+  if (!isoDate) return '--';
+  if (index === 0) return 'Today';
+  if (index === 1) return 'Tomorrow';
+  try {
+    const date = new Date(isoDate);
+    return date.toLocaleDateString([], { weekday: 'short' });
+  } catch {
+    return isoDate;
+  }
+}
+
+export function formatFullDate(isoDate) {
+  if (!isoDate) return '';
+  try {
+    const date = new Date(isoDate);
+    return date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+  } catch {
+    return isoDate;
+  }
+}
+
+export function getAqiCategory(aqi) {
+  if (aqi == null) return { label: 'Good', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' };
+  if (aqi <= 50) return { label: 'Good', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' };
+  if (aqi <= 100) return { label: 'Moderate', color: 'text-yellow-400', bg: 'bg-yellow-500/10 border-yellow-500/20' };
+  if (aqi <= 150) return { label: 'Unhealthy for Sensitive', color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/20' };
+  if (aqi <= 200) return { label: 'Unhealthy', color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' };
+  if (aqi <= 300) return { label: 'Very Unhealthy', color: 'text-purple-400', bg: 'bg-purple-500/10 border-purple-500/20' };
+  return { label: 'Hazardous', color: 'text-red-600', bg: 'bg-red-500/10 border-red-500/20' };
+}
+
+export function getUvCategory(uv) {
+  if (uv == null) return { label: 'Low', color: 'text-emerald-400' };
+  if (uv < 3) return { label: 'Low', color: 'text-emerald-400' };
+  if (uv < 6) return { label: 'Moderate', color: 'text-yellow-400' };
+  if (uv < 8) return { label: 'Very High', color: 'text-orange-400' };
+  if (uv < 11) return { label: 'Extreme', color: 'text-rose-400' };
+  return { label: 'Extreme Danger', color: 'text-purple-400' };
 }

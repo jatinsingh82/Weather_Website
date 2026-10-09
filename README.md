@@ -1,75 +1,42 @@
-# Jatin Singh — Personal Technology & Cyber Strategy Portfolio
+# WeatherNow — Weather Intelligence Platform
 
-> **Computer Science Engineer + MBA (IT) / Business Analytics + Cybersecurity Analyst**  
-> Operating at the intersection of cybersecurity architecture, business resilience, data analytics, and modern software engineering.
-
----
-
-## 🎯 Executive Overview
-
-This repository hosts the personal portfolio of **Jatin Singh**, built with React 18 and Tailwind CSS, featuring the interactive flagship cybersecurity project **CyberSim**.
-
-### Professional Positioning
-* **Role:** Cybersecurity Analyst — Cyber Strategy & Transformation (Deloitte)
-* **Education:** B.Tech Computer Science Engineering + MBA in Information Technology (Business Analytics)
-* **Focus:** Incident response decision modeling, identity boundaries, network segmentation, quantitative risk valuation, and modern web systems.
+> **Modern, high-precision meteorological intelligence and atmospheric visualization platform.**  
+> Delivering real-time observations, 24-hour micro-forecasts, 7-day outlooks, algorithmic Comfort Scores, Activity Recommendations, live precipitation radar, and multi-location comparisons.
 
 ---
 
-## 🚀 Flagship Project: CyberSim
+## ⚡ Highlights
 
-**CyberSim** is an interactive cybersecurity incident decision lab designed to simulate realistic enterprise incident response trade-offs. Rather than presenting multiple-choice quiz questions, it places the practitioner in the Incident Commander seat during active cyber crises.
-
-### Core Capabilities:
-1. **Deterministic Simulation Engine:** Models attack progression, indicators of compromise (IOCs), telemetry logs, and state transitions without synthetic LLM hallucinations.
-2. **Multi-Vector Enterprise Scenarios:**
-   * *Operation Red Vault:* Enterprise Ransomware outbreak (LockBit 3.0 strain) with double extortion.
-   * *Cloud Infrastructure Exposure:* AWS IAM credential leak and multi-tenant S3 exfiltration.
-   * *Operation Velvet Trap:* Adversary-in-the-Middle (AiTM) Evilginx phishing session theft and fraudulent SWIFT wire staging.
-3. **Real-World Operational Trade-Offs:** Balances defensive containment (e.g. total network severance vs. surgical micro-segmentation) against revenue loss, SLA penalties, and legal notification clocks (SEC 4-day, GDPR 72-hour).
-4. **Live Telemetry & Posture HUD:** Real-time metrics for Security Posture, Business Continuity, Capital Impact ($), Downtime Hours, and Exfiltrated Records.
-5. **NIST SP 800-61 Aligned Post-Mortem Report:** 5-dimension executive scorecard evaluating Security Posture, Business Continuity, Financial Prudence, Data Protection, and Tactical Decisiveness.
+* **Hyperlocal Real-Time Forecasts:** Powered by high-resolution Open-Meteo atmospheric modeling with sub-hourly updates, zero API key prerequisites, and smart client-side caching.
+* **Weather DNA & Comfort Score:** Proprietary composite indexes factoring in thermal sensation, relative humidity, dew point, wind chill/gusts, and solar UV radiation.
+* **Smart Activity Advisor:** Context-aware outdoor recommendations for Running, Cycling, Hiking, Photography, Stargazing, and Outdoor Dining.
+* **Live Rain Radar:** Interactive precipitation Doppler map powered by the RainViewer satellite API with time-slider playback.
+* **Location Comparison & Saved Hubs:** Fast bookmarking of favorite cities and side-by-side comparative atmospheric analysis.
+* **Responsive Visual Atmosphere:** Dynamic ambient themes reflecting clear skies, night horizons, golden hours, rainfall, thunderstorms, and snow.
 
 ---
 
-## 🛠️ Portfolio Architecture & Tech Stack
+## 🧭 Application Features
 
-* **Frontend Framework:** React 18 with functional components and custom state hooks
-* **Design System:** Custom dark theme palette with editorial typography, subtle borders, and accessible high-contrast accents
-* **Icons:** Lucide React
-* **Styling:** Tailwind CSS + CSS Custom Properties
-* **Build System:** Webpack / React Scripts
-
----
-
-## 📂 Project Structure
-
-```text
-├── public/
-│   ├── index.html          # SEO, OpenGraph, JSON-LD schema
-│   ├── manifest.json
-│   └── favicon.ico
-├── src/
-│   ├── Components/
-│   │   ├── Portfolio/      # Personal brand, Hero, Projects, Experience, Skills, Journey, Contact
-│   │   ├── CyberNavbar/    # Enterprise SOC incident navigation
-│   │   ├── IncidentView/   # Real-time telemetry, IOCs, and tactical decision options
-│   │   ├── RiskPostureHUD/ # Live metrics: Security, Continuity, Capital Loss, Downtime
-│   │   ├── AttackTimeline/ # Chronological incident milestones & audit trail
-│   │   ├── ExecutiveDashboard/ # C-suite briefing on business interruption & compliance
-│   │   └── PostMortemReport/   # NIST-aligned 5-dimension executive scorecard
-│   ├── sim-engine/
-│   │   ├── scenarios/      # Ransomware, Cloud Exposure, Phishing ATO
-│   │   ├── scoringModel.js # Deterministic state machine & impact calculation
-│   │   └── types.js        # Engine constants
-│   ├── App.js              # Dual-mode container (Portfolio + CyberSim launcher)
-│   └── index.css           # Design tokens and typography
-└── package.json
-```
+1. **Weather Search & Geocoding:** Search any global city, capital, or coordinate with instant autofill and browser geolocation detection.
+2. **Current Conditions:** Real-time temperature, apparent ("feels like") temperature, humidity, wind speed & direction, pressure, visibility, cloud cover, and UV index.
+3. **Hourly Forecast Timeline:** 24-48 hour scrollable timeline featuring hourly temperature trends, precipitation probability, and condition badges.
+4. **7-Day Meteorological Outlook:** High/low temperature ranges, rain volumes, daily condition icons, and detailed accordion expansion.
+5. **Air Quality Index (AQI):** European & US standard AQI metrics, PM2.5, PM10, Ozone, NO2, and SO2 pollutants with health safety ratings.
+6. **Precipitation Doppler Radar:** Real-time radar tile viewer with interactive playback and past/future rain movements.
+7. **Units Toggle:** Instant one-click toggle between Metric (°C, km/h, mm) and Imperial (°F, mph, in).
 
 ---
 
-## 💻 Local Development
+## 🛠️ Tech Stack & Architecture
+
+* **Frontend:** React 18, Tailwind CSS, Lucide Icons
+* **Data Sources:** Open-Meteo Forecast & Air Quality API, Open-Meteo Geocoding, RainViewer Radar API
+* **State & Performance:** React Hooks, local storage persistence, resilient error fallbacks
+
+---
+
+## 🚀 Getting Started
 
 ```bash
 # Clone the repository
@@ -78,14 +45,11 @@ git clone https://github.com/jatinsingh82/Weather_Website.git
 # Install dependencies
 npm install
 
-# Start development server
+# Start the development server
 npm start
 ```
 
 ---
 
-## 📬 Contact & Profiles
-
-* **GitHub:** [@jatinsingh82](https://github.com/jatinsingh82)
-* **Email:** [immanuel.0747@gmail.com](mailto:immanuel.0747@gmail.com)
-* **Role:** Cybersecurity Analyst — Cyber Strategy & Transformation
+## 📄 License
+MIT License

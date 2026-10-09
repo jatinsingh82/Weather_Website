@@ -1,7 +1,7 @@
 {
-  "short_name": "Jatin Singh",
-  "name": "Jatin Singh — Cybersecurity × Technology × Business Strategy",
-  "description": "Personal portfolio of Jatin Singh: Computer Science Engineer, MBA in IT & Business Analytics, and Cybersecurity Analyst specializing in Cyber Strategy, Security Architecture, and Incident Decision Systems.",
+  "short_name": "WeatherNow",
+  "name": "WeatherNow — Professional Real-Time Weather",
+  "description": "A modern, high-precision weather forecast application with Weather DNA, hourly timeline, 7-day outlook, smart search, and activity advice.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -15,5 +15,5 @@
   "orientation": "portrait-primary",
   "theme_color": "#06090e",
   "background_color": "#06090e",
-  "categories": ["portfolio", "technology", "cybersecurity"]
+  "categories": ["weather", "meteorology", "utilities"]
 }
