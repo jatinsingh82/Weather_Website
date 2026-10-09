@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* Color Tokens: Cybersecurity × Modern SaaS × Editorial Portfolio */
   --bg-primary: #06090e;

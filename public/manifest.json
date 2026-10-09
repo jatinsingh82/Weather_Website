@@ -1,7 +1,7 @@
 {
-  "short_name": "WeatherNow",
-  "name": "WeatherNow — Real-Time Weather Forecast",
-  "description": "High-precision real-time weather forecasts, hourly timelines, 7-day outlook, and weather intelligence.",
+  "short_name": "Jatin Singh",
+  "name": "Jatin Singh — Cybersecurity × Technology × Business Strategy",
+  "description": "Personal portfolio of Jatin Singh: Computer Science Engineer, MBA in IT & Business Analytics, and Cybersecurity Analyst specializing in Cyber Strategy, Security Architecture, and Incident Decision Systems.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,7 +13,7 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "theme_color": "#0f172a",
-  "background_color": "#0f172a",
-  "categories": ["weather", "utilities"]
+  "theme_color": "#06090e",
+  "background_color": "#06090e",
+  "categories": ["portfolio", "technology", "cybersecurity"]
 }

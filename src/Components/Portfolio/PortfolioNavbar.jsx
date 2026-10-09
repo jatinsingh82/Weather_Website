@@ -13,6 +13,7 @@ export default function PortfolioNavbar() {
     { label: 'Skills', href: '#skills' },
     { label: 'Journey', href: '#journey' },
     { label: 'Thinking', href: '#thinking' },
+    { label: 'Credentials', href: '#certifications' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -20,7 +21,7 @@ export default function PortfolioNavbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
 
-      const sections = ['about', 'work', 'experience', 'skills', 'journey', 'thinking', 'contact'];
+      const sections = ['about', 'work', 'experience', 'skills', 'journey', 'thinking', 'certifications', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {

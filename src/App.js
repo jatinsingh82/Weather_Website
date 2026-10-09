@@ -7,6 +7,7 @@ import PortfolioExperience from './Components/Portfolio/PortfolioExperience';
 import PortfolioSkills from './Components/Portfolio/PortfolioSkills';
 import PortfolioJourney from './Components/Portfolio/PortfolioJourney';
 import PortfolioThinking from './Components/Portfolio/PortfolioThinking';
+import PortfolioCertifications from './Components/Portfolio/PortfolioCertifications';
 import PortfolioContact from './Components/Portfolio/PortfolioContact';
 import PortfolioFooter from './Components/Portfolio/PortfolioFooter';
 import CyberSimApp from './Components/CyberSimApp/CyberSimApp';
@@ -54,6 +55,7 @@ function App() {
         <PortfolioSkills />
         <PortfolioJourney />
         <PortfolioThinking />
+        <PortfolioCertifications />
         <PortfolioContact />
       </main>
 

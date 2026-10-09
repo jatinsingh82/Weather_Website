@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://weather-realtime-website.vercel.app/sitemap.xml
+Sitemap: https://github.com/jatinsingh82/sitemap.xml
